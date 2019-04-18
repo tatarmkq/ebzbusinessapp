@@ -1,0 +1,174 @@
+<!-- MTA - start -->
+<!--
+<ion-card>
+	<div>TEST</div>
+</ion-card>
+-->
+<!-- 1. NFV
+	<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+		<div class="flipper">
+			<div class="front">
+				<!-- front content
+					front content
+			</div>
+			<div class="back">
+				<!-- back content
+				 back content 
+			</div>
+		</div>
+	</div>
+-->
+
+<!-- ORIGINAL code: -->
+<!--
+<ion-card style="padding: 0px; background-color: #07325a ; border: 1px solid #07325a ">
+	
+	<div class="ebz_startseitenkurse">
+		<div (click)="openCourse(course)" class="core-course-thumb core-course-color-{{course.id % 10}}" [class.core-course-color-img]="course.imageThumb">
+			<img *ngIf="course.imageThumb" [src]="course.imageThumb" core-external-content alt=""/>
+		</div>		
+		<ion-item tappable text-wrap detail-none (click)="openCourse(course)" [title]="course.displayname || course.fullname" class="core-course-link">			
+			<h2><core-format-text [text]="course.displayname || course.fullname"></core-format-text></h2>
+				<div style="float: left; margin: 0px; color: #07325a ; font-size: 1.2em;">&nbsp;&#187;</div>	
+			<div class="core-button-spinner" *ngIf="downloadCourseEnabled">				
+				<ion-spinner *ngIf="prefetchCourseData.prefetchCourseIcon == 'spinner'"></ion-spinner>
+			</div>
+		</ion-item>
+		
+		<ion-item text-wrap *ngIf="course.summary && course.summary.length">
+			<p>
+				<summary>
+					<core-format-text [text]="course.summary" [singleLine]="true" [clean]="true" [fullOnClick]="true"></core-format-text>
+				</summary>
+			</p>
+		</ion-item>
+		<ion-item *ngIf="course.progress != null && course.progress >= 0">
+			<core-progress-bar [progress]="course.progress"></core-progress-bar>
+		</ion-item>
+		<ng-content></ng-content>
+		<div style="float: left; padding: 5px; font-size: 0.7em; color: white;"><br>&nbsp;&nbsp;&nbsp;- Punkt 1 <br>&nbsp;&nbsp;&nbsp;- Punkt 2 <br>&nbsp;&nbsp;&nbsp;- Punkt 3 <br>&nbsp;&nbsp;&nbsp;- Punkt 4</div>
+	</div>
+</ion-card>	
+	-->
+<ion-card style="border-style: none;">	
+	<div id="f1_container" style="border-style: none;">
+	<div id="f1_card" class="shadow" style="border-style: none;">
+	  <p class="front face" style="border-style: none;">
+		<!--<ion-item style="color: white; background-color: #07325a ;" tappable text-wrap detail-none (click)="openCourse(course)" [title]="course.displayname || course.fullname" class="core-course-link">-->
+		<ion-item style="color: white; background-color: #07325a; border-style: none;" class="core-course-link">
+			<!--<h3 *ngIf="course.id!=1857"><core-format-text [text]="course.displayname || course.fullname"></core-format-text></h3>-->
+
+			<img class="ebzhomeimages" height="150" width="150" src="Studium_und_Module.svg" *ngIf="course.id==1474">
+
+			<!--<img src="Pruefungsamt.svg" style="width: 100%; height: 60%;" *ngIf="course.id==1857"> -->
+			<img class="ebzhomeimages" height="150" width="150" src="Pruefungsamt.svg" *ngIf="course.id==1857">
+			<img class="ebzhomeimages" height="150" width="150" src="Materialien.svg" *ngIf="course.id==1466">
+			<img class="ebzhomeimages" height="150" width="150" src="Termine.svg" *ngIf="course.id==1465">
+			<img class="ebzhomeimages" height="150" width="150" src="Studienuebergreifendes.svg" *ngIf="course.id==1467">
+			<img class="ebzhomeimages" height="150" width="150" src="Studierenden_Service.svg" *ngIf="course.id==1472">
+			<div style="width: 100%; height: 100%; padding-left: 10px;"></div>
+			<p class="core-button-spinner" *ngIf="downloadCourseEnabled">				
+				<ion-spinner *ngIf="prefetchCourseData.prefetchCourseIcon == 'spinner'"></ion-spinner>
+			</p>
+		</ion-item>	  
+	  </p>
+	  <div class="back face center" style="border-style: none;">
+		<!--<p>Rückseite</p>-->
+		<ion-item style="color: #07325a ;border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1474">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px;  width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%; line-break: strict;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Modulübersicht</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Organisatorischer Bereich</li>
+				</ul>
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin: 0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<!-- FV bis  20190328
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>-->
+			<!-- NEU : -->
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" [navPush]="'CoreCoursesMyCoursesPage3'"  class="core-course-link"><br>&nbsp;&#187;</div>
+			<!--<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" [navPush]="'OrgaListPage'"  class="core-course-link"><br>&nbsp;&#187;</div>-->
+		</ion-item>	 
+
+		<ion-item style="color: #07325a ; border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1857">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%; line-break: strict;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Prüfungstermine und An-/Abmeldungen</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Prüfungsergebnisse</li>
+				</ul>
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin: 0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<!--<div style="float: right; width: 25%; margin: 0px; height: 130px; background-color: #3498DB; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>-->
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" [navPush]="'CoreSiteHomeIndexPage'" class="core-course-link"><br>&nbsp;&#187;</div>	
+		</ion-item>	 			
+		
+		<ion-item style="color: #07325a ; border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1466">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%; line-break: strict;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Digitale Medien</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Studienbriefe)</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Übergreifende Infos</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Mustervorlagen für das Studium</li>
+				</ul>
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin: 0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>	
+		</ion-item>	 
+
+		<ion-item style="color: #07325a ; border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1465">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<!--<div style="width: 50%; max-width: 50%;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<!-- FV: <li style="white-space: pre-line; padding-right: 2px; padding-bottom: 3px; box-sizing: border-box;  -moz-box-sizing: border-box;"><span>Anmeldung</span> <span>zu</span> <span>Präsenzveranstaltungen(DL)</span></li>-->
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Anmeldung zu Präsenzveranstaltungen(DL)</li>
+					<!--<li><span>Anmeldung</span> <span>zu</span> <span>Präsenzveranstaltungen(DL)</span></li><br>-->
+					<!--<li>Anmeldung zu Präsenzveranstaltungen(DL)</li>-->
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Stundenplan</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Veranstaltungsplan</li>
+				</ul>
+				<!-- </div>-->
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin: 0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>	
+		</ion-item>	
+
+		<ion-item style="color: #07325a ; border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1467">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%; line-break: strict;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Aktuelle Infos</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Ansprechpartner EBZ Business School</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Qualitätsmanagement</li>
+				</ul>
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin:0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>	
+		</ion-item>		
+
+		<ion-item style="color: #07325a ; border: 2px solid #07325a ; padding: 0px;" class="core-course-link" *ngIf="course.id==1472">
+			<!--FV: <div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em;"><br>&nbsp;- Punkt 1 <br>&nbsp;- Punkt 2 <br>&nbsp;- Punkt 3 <br>&nbsp;- Punkt 4</div>-->
+			<div style="float: left; margin: 0px; height: 90px; width:75%; line-break: strict;">
+				<!-- FV: <ul style="padding-inline-start: 8px; list-style-type: disc;">-->
+				<ul class="ebzhomeitems" style="list-style-type: square; max-width: 100%; line-break: loose; padding-right: 5px !important;">
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Studierendensekretariat</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Studienverlaufsberatung und -betreung</li>
+					<li style="white-space: pre-line; padding-right: 2px; padding-bottom: 5px; box-sizing: border-box;  -moz-box-sizing: border-box;">Praktikumsbüro, Career Placement</li>
+				</ul>
+			</div>
+			<!--<div style="border-left: 2px solid white; float: right; border-left: 2px solid #07325a ; width: 25%; margin: 0px; height: 130px; background-color: #dff2fc; vertical-align: middle; font-size: 0.4em" (click)="openCourse(course)" class="core-course-link"><br><br><br><br><br>&nbsp;Details&nbsp;&nbsp;&#187;</div>-->	
+			<div style="float: right; width: 25%; margin: 0px; height: 134px; background-color: #07325a; color: white; font-size: 1.8em" (click)="openCourse(course)" class="core-course-link"><br>&nbsp;&#187;</div>	
+		</ion-item>			
+		
+	  </div>
+	</div>
+	</div>
+</ion-card>	
+<!--MTA - end -->

@@ -1,0 +1,339 @@
+/* MTA - start */
+ion-app.app-root core-sitehome-all-course-list {
+    a.ebz_kachel {
+	  background-color: #dff2fc;
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 80%;
+	  height: 120px;
+	  line-height: 100px;
+	  text-align: center;
+	  vertical-align: middle;
+	  margin-top: 4px;
+	  border: 1px solid #07325a;
+		/* MTA - end */		
+    }
+	
+	div.ebz_kachel_link_left {
+		float: left; 
+		margin-top: 15px;
+	//	height: 100px;
+		height: 130px;
+	//	width:100%;
+		width:180px;
+		//width:auto;
+		font-size: 0.8em;	
+	}
+	
+	div.ebz_kachel_link_left > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+	
+	div.ebz_kachel_link_right > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_middle > img
+	{
+		height: 100%;
+		width: 100%;
+	}	
+	
+	div.ebz_kachel_link_right {
+		float: right; 
+		margin-top: 15px;
+	//	margin-top: 150px;
+	//	display: block;
+	//    margin-left: auto;
+	    margin-right: -28px;
+	//	margin-left: 100px;
+		height: 130px;
+	//	width:auto;
+		//max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+		/*line-break: strict;*/
+	}	
+	
+	div.ebz_kachel_link_middle {
+		float: left;
+	 //   display: block;
+	//	margin-top: 150px;
+	//    margin-left: auto;
+	//    margin-right: 30px;
+		margin-left: 0px;
+	    margin-top: 15px;
+	//	height: 100px;
+		height: 130px;
+	//	width:auto;	
+	//	max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+	}	
+	
+	#ebz_kachel_link_row {
+	//	display: block;
+	//    float: left;
+		display: block;
+	    margin-left: auto;	
+	    margin-right: auto;	
+		max-width: 150px;
+	}
+
+	#ebz_kachel_link_row2 {
+	//	display: block;
+	    float: left;
+	}		
+
+/*	
+	div.ebz_kachel.a {
+		font-size: 3px;
+	}
+*/	
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+/* MTA - 2 */
+ion-app.app-root core-sitehome-categories {
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+			background-color: #1080b8;  /* MTA - mod */
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+				color: white; /* MTA - mod */
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			height: 150px;
+			/*background-color: #d5f3f2;*/
+			/*background-color: #c8f5d8;*/
+			/*background-color: #c8e6f5;*/
+			background-color: #1080b8;
+			border: 2px solid #07325a;
+			border-radius: 5px;
+			/*background-color: #d5f3f2 !important; */
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+
+/* MTA - 3 */
+ion-app.app-root core-sitehome-course-search {
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+			background-color: #1080b8;  /* MTA - mod */
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+				color: white; /* MTA - mod */
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			height: 150px;
+			/*background-color: #d5f3f2;*/
+			/*background-color: #c8f5d8;*/
+			/*background-color: #c8e6f5;*/
+			background-color: #1080b8;
+			border: 2px solid #07325a;
+			border-radius: 5px;
+			/*background-color: #d5f3f2 !important; */
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+/* MTA - 4 */
+ion-app.app-root core-sitehome-enrolled-course-list {
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+			background-color: #1080b8;  /* MTA - mod */
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+				color: white; /* MTA - mod */
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			height: 150px;
+			/*background-color: #d5f3f2;*/
+			/*background-color: #c8f5d8;*/
+			/*background-color: #c8e6f5;*/
+			background-color: #1080b8;
+			border: 2px solid #07325a;
+			border-radius: 5px;
+			/*background-color: #d5f3f2 !important; */
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+	
+/* MTA - end */	

@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar core-back-button>
+	<!-- MTA - start -->
+      <!--  <ion-title>{{ 'core.courses.mycourses' | translate }}</ion-title>-->
+        <ion-title>Organisatorisches</ion-title>
+	<!-- MTA - end -->	
+
+        <ion-buttons end>
+            <button *ngIf="searchEnabled" ion-button icon-only (click)="openSearch()" [attr.aria-label]="'core.courses.searchcourses' | translate">
+                <ion-icon name="search"></ion-icon>
+            </button>
+            <core-context-menu>
+                <core-context-menu-item [hidden]="!downloadAllCoursesEnabled || !courses || courses.length < 2" [priority]="800" [content]="'core.courses.downloadcourses' | translate" (action)="prefetchCourses()" [iconAction]="prefetchCoursesData.icon" [closeOnClick]="false" [badge]="prefetchCoursesData.badge"></core-context-menu-item>
+                <core-context-menu-item [hidden]="!courses || courses.length <= 5" [priority]="700" [content]="'core.courses.filtermycourses' | translate" (action)="switchFilter()" [iconAction]="'funnel'"></core-context-menu-item>
+            </core-context-menu>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!-- MTA - start:
+<ion-content ngInit="close_sortcrit_dropdown()">
+	<div class="dropdown">
+	<button (click)="sort_courses()" class="dropbtn">Dropdown</button>
+	  <div id="myDropdown" class="dropdown-content">
+		<a ion-item text-wrap [navPush]="'CoreCoursesMyCoursesPage3'">Alphabet (Z bis A)</a>
+		<a disabled ion-item text-wrap [navPush]="'CoreCoursesMyCoursesPage4'">Alphabet (A bis Z)</a>
+		<a href="#">Link 3</a>
+		<a href="#">Link 4</a>
+		<a href="#">Link 5</a>
+		<a href="#">Link 6</a>
+	  </div>
+	</div>
+-->
+<ion-content>
+    <ion-refresher [enabled]="coursesLoaded" (ionRefresh)="refreshCourses($event)">
+        <ion-refresher-content pullingText="{{ 'core.pulltorefresh' | translate }}"></ion-refresher-content>
+    </ion-refresher>
+
+    <core-loading [hideUntil]="coursesLoaded">
+        <ion-searchbar #searchbar *ngIf="showFilter" [(ngModel)]="filter" (ionInput)="filterChanged($event)" (ionCancel)="filterChanged()" [placeholder]="'core.courses.filtermycourses' | translate">
+        </ion-searchbar>
+        <ion-grid no-padding>
+            <ion-row no-padding>
+                <ion-col *ngFor="let course of filteredCourses" no-padding col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 align-self-stretch>
+                    <core-courses-course-progress5 [course]="course" class="core-courseoverview"></core-courses-course-progress5>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <core-empty-box *ngIf="!courses || !courses.length" icon="ionic" [message]="'core.courses.nocourses' | translate">
+            <p *ngIf="searchEnabled">{{ 'core.courses.searchcoursesadvice' | translate }}</p>
+        </core-empty-box>
+    </core-loading>		
+</ion-content>
+
+
+<!--
+<ion-header>
+    <ion-navbar core-back-button>
+        <ion-title>Studium und Module</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<div id="ebz_kachel_link_row">
+	<div class="ebz_kachel_link_left" [navPush]="'CoreCoursesMyCoursesPage'" align-self-stretch>
+		<img src="Moduluebersicht.svg">
+	</div>
+	<div class="ebz_kachel_link_right" [navPush]="'CoreCoursesMyCoursesPage4'">
+	    <img src="Organisatorischer_Bereich.svg"/>                   
+	</div>
+	
+</div>	
+-->

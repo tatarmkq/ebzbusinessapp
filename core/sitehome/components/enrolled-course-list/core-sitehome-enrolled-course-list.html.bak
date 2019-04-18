@@ -1,0 +1,5 @@
+<!-- // MTA - marker (ff) - SITEHOME / COURSE SITE solution: change link target of homesite link 'my-courses'-->
+<a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesMyCoursesPage'">
+    <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
+    <h2>{{ 'core.courses.mycourses' | translate}}</h2>
+</a>

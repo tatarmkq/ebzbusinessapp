@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-navbar core-back-button>
+	<!-- MTA - start --> 
+        <!--<ion-title>{{ 'core.sitehome.sitehome' | translate }}</ion-title>  -->
+        <ion-title>Prüfungsamt</ion-title>
+		<!-- <img src="ebz_logo_NEU.png" width="100" height="38" style="margin-left: 70%; margin-top: -30px;"> -->
+	<!-- MTA - end -->	
+    </ion-navbar>
+</ion-header>
+
+<!-- MTA - start -->
+<!-- ORIGINAL code -->
+<!--
+<ion-content>
+    <ion-refresher [enabled]="siteHomeComponent && siteHomeComponent.dataLoaded" (ionRefresh)="siteHomeComponent.doRefresh($event)">
+        <ion-refresher-content pullingText="{{ 'core.pulltorefresh' | translate }}"></ion-refresher-content>
+    </ion-refresher>
+    <core-sitehome-index></core-sitehome-index>
+</ion-content>
+-->
+<!-- ORIGINAL code : end -->
+
+<!--<div class="ebz_kachel" no-padding col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 align-self-stretch>-->
+<!--MTA-ORIGINAL : <a class="ebz_kachel" ion-item text-wrap [navPush]="'AddonFilesListPage'">-->
+	<!--<div style="float: left; margin: 0px; height: 90px; width:75%; background-color: #white; font-size: 0.8em; line-break: strict;" [navPush]="'AddonFilesListPage'">-->
+<div id="ebz_kachel_link_row">
+	<!--<div class="ebz_kachel_link_left" [navPush]="'AddonFilesListPage'" no-padding col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 align-self-stretch>-->
+
+	<div class="ebz_kachel_link_left" [navPush]="'ExamEnrolmentsPage'" align-self-stretch>
+		<img src="Bestehende_Klausuranmeldungen.svg">
+	</div>
+	
+	
+	<!-- MTA - ORIGINAL :
+	<div class="ebz_kachel_link">
+		 <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
+		 Meine Klausuranmeldungen
+
+	</div>
+
+</a>
+-->
+	<!--<div class="ebz_kachel_link_right" [navPush]="'CoreCoursesMyCoursesPage3'" no-padding col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 align-self-stretch>-->
+
+	<div class="ebz_kachel_link_right" [navPush]="'CoreCoursesMyCoursesPage3'">
+
+	    <img src="Pruefungstermine.svg"/>                   
+
+	</div>
+
+	<div class="ebz_kachel_link_middle" [navPush]="'CoreGradesCoursesPage'">
+		<img src="Pruefungsergebnisse.svg"/>
+	</div>	
+</div>	
+<!-- MTA - ORIGINAL: 
+<a class="ebz_kachel" ion-item text-wrap [navPush]="'CoreCoursesMyCoursesPage3'">
+	<div class="ebz_kachel_link">
+		 <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
+		 Meine Klausurtermine
+	</div>
+</a>
+-->
+<!--
+<div id="ebz_kachel_link_row2" align-self-stretch>
+	<!--<div class="ebz_kachel_link_middle" [navPush]="'CoreGradesCoursesPage'" no-padding col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 align-self-stretch>-->
+<!--	<div class="ebz_kachel_link_middle" [navPush]="'CoreGradesCoursesPage'">
+		<img src="Studium_und_Module.svg">
+	</div>
+</div>	
+-->
+
+
+
+
+
+
+
+
+<!--<div class="ebz_kachel" no-padding col-6 col-sm-3 col-md-3 col-lg-2 col-xl-2 align-self-stretch>-->
+<!--<a class="ebz_kachel" ion-item text-wrap [navPush]="'CoreGradesCoursesPage'">-->
+
+<!-- MTA - ORIGINAL: 
+<a class="ebz_kachel" ion-item text-wrap [navPush]="'CoreGradesCoursesPage'">
+	<div class="ebz_kachel_link">
+		 <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
+		 Meine Noten
+	</div>
+</a>
+-->
+<!-- ORIGINAL code
+<a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesAvailableCoursesPage'">
+    <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
+    <h2>{{ 'core.courses.availablecourses' | translate}}</h2>
+</a>
+-->
+<!-- MTA - end -->

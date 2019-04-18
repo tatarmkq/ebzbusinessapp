@@ -1,0 +1,932 @@
+ion-app.app-root core-courses-course-progress {
+    ion-card.card {
+        display: flex;
+        flex-direction: column;	
+	
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			color: green !important;
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+/* MTA - start */
+ion-app.app-root core-courses-course-progress2 {
+// MTA - start 
+	ion-card.card-md
+	{
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		background-color: $background-color;
+	}
+	
+	/*
+	.itom-block .item-md
+	{
+		background-color: red !important;
+	}	
+	*/
+/* MTA - end */	
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+		/* MTA - start
+		//transition: transform .2s;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		//border-shadow: none;
+		/* MTA - end */
+		
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+			//background-color: white;  /* MTA - mod */
+			background-color: $background-color;  /* MTA - mod */
+			/* MTA - start */
+            padding-top: 1px;
+			padding-bottom: 1px;
+			height: 130px;
+		//	box-shadow: none !important;
+			border-shadow: none !important;
+            /* ORIGINAL code 
+			padding-top: 8px;
+			padding-bottom: 8px;*/
+			/* MTA - end */
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+				/*color: #07325a ; /* MTA - mod */
+				color: white;	/* MTA - mod */
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			height: 130px;
+			/*background-color: #d5f3f2;*/
+			/*background-color: #c8f5d8;*/
+			/*background-color: #c8e6f5;*/
+			/*background-color: #1080b8;*/
+			//background-color: #dff2fc;
+			// background-color: #dff2fc !important;
+			/*border: 2px solid #07325a ;*/
+			//border-radius: 5px;
+			/*background-color: #d5f3f2 !important; */
+		}
+		
+		.ebz_startseitenkurse:hover 
+		{
+			zoom: 180%;
+		}		
+
+		/* MTA - end */		
+    }
+	/* MTA - :
+	ion-card.card:hover
+	{
+		transform: scale(1.5);
+	}		
+	*/	
+
+    button {
+        z-index: 1;
+    }
+	
+	// DREHBARE KACHELN:
+	#f1_container {
+	  position: relative;
+	  margin: 0px auto;
+	  width: 100%;
+	  height: 130px;;	  
+	  z-index: 1;
+	  background-color: #eeeeee;
+	  border: 1px #eeeeee solid;
+	  border-shadow: none;
+	 // border-shadow: none;
+	}
+	#f1_container {
+	  perspective: 1000;
+	  border-shadow: none;
+	}
+	#f1_card {
+	  width: 100%;
+	  height: 100%;
+	  transform-style: preserve-3d;
+	  transition: all 1.0s linear;
+	  border-shadow: none;
+	}
+	#f1_container:hover #f1_card {
+	  transform: rotateY(180deg);
+	 // border: 1px #eeeeee solid;
+	  border-shadow: none;
+	}
+	.face {
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  text-align: center;
+	  backface-visibility: hidden;
+	  border-shadow: none;
+	 // color: white;
+	 // background-color: #07325a ;
+	 // border: 2px solid #07325a ;
+	}
+	.face.back {
+	  display: block;
+	  transform: rotateY(180deg);
+	  box-sizing: border-box;
+	  padding: 0px;
+	//  color: white;
+	  text-align: center;
+	  //background-color: #aaa;
+	  border-shadow: none;
+	  border: 2px solid #07325a ;
+	  //padding-bottom: 20px;
+	}	
+	// NEU:
+	.face.front h3{
+	  text-align: center;
+	//  color: white;
+	  background-color: #07325a;	  
+	  //background-color: white;
+		border-shadow: none;	  
+	}	
+}
+
+
+/* MTA - Kurssortierung (start) */
+// KOMPONENTE 3 ///////////////////////////////////////////////////////////
+ion-app.app-root core-courses-course-progress3 {
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			color: green !important;
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+// KOMPONENTE 4 ///////////////////////////////////////////////////////////
+ion-app.app-root core-courses-course-progress4 {
+
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+		
+		
+// MTA - start (imported) / solution for 1st tile on startpage
+	#ebz_kachel_link_row {
+	//	display: block;
+	//    float: left;
+		display: block;
+	    margin-left: auto;	
+	    margin-right: auto;	
+		max-width: 150px;
+	}
+	
+	div.ebz_kachel_link_left {
+		float: left; 
+		margin-top: 2px;
+	//	height: 100px;
+		height: 130px;
+	//	width:100%;
+		width:180px;
+		//width:auto;
+		font-size: 0.8em;	
+	}
+	
+	div.ebz_kachel_link_left > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right {
+		float: right; 
+		margin-top: 15px;
+	//	margin-top: 150px;
+	//	display: block;
+	//    margin-left: auto;
+	    margin-right: -28px;
+	//	margin-left: 100px;
+		height: 130px;
+	//	width:auto;
+		//max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+		/*line-break: strict;*/
+	}
+
+	div.ebz_kachel_link_middle > img
+	{
+		height: 100%;
+		width: 100%;
+	}	
+
+	div.ebz_kachel_link_middle {
+		float: left;
+	 //   display: block;
+	//	margin-top: 150px;
+	//    margin-left: auto;
+	//    margin-right: 30px;
+		margin-left: 0px;
+	    margin-top: 15px;
+	//	height: 100px;
+		height: 130px;
+	//	width:auto;	
+	//	max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+	}	
+// MTA - end (imported)			
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			color: green !important;
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+
+// KOMPONENTE 5 ///////////////////////////////////////////////////////////
+ion-app.app-root core-courses-course-progress5 {
+
+    ion-card.card {
+        display: flex;
+        flex-direction: column;
+		
+		
+// MTA - start (imported) / solution for 1st tile on startpage
+	#ebz_kachel_link_row {
+	//	display: block;
+	//    float: left;
+		display: block;
+	    margin-left: auto;	
+	    margin-right: auto;	
+		max-width: 150px;
+	}
+	
+	div.ebz_kachel_link_left {
+		float: left; 
+		margin-top: 2px;
+	//	height: 100px;
+		height: 130px;
+	//	width:100%;
+		width:180px;
+		//width:auto;
+		font-size: 0.8em;	
+	}
+	
+	div.ebz_kachel_link_left > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right {
+		float: right; 
+		margin-top: 15px;
+	//	margin-top: 150px;
+	//	display: block;
+	//    margin-left: auto;
+	    margin-right: -28px;
+	//	margin-left: 100px;
+		height: 130px;
+	//	width:auto;
+		//max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+		/*line-break: strict;*/
+	}
+
+	div.ebz_kachel_link_middle > img
+	{
+		height: 100%;
+		width: 100%;
+	}	
+
+	div.ebz_kachel_link_middle {
+		float: left;
+	 //   display: block;
+	//	margin-top: 150px;
+	//    margin-left: auto;
+	//    margin-right: 30px;
+		margin-left: 0px;
+	    margin-top: 15px;
+	//	height: 100px;
+		height: 130px;
+	//	width:auto;	
+	//	max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+	}	
+// MTA - end (imported)			
+
+		/* MTA - mod --> Original values: height: 150px */
+        .core-course-thumb {
+            height: 0px;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+
+			
+            @for $i from 0 to length($core-course-image-background) {
+                &.core-course-color-#{$i} {
+                    background: nth($core-course-image-background, $i + 1);
+                }
+            }
+			
+
+            &.core-course-color-img {
+                background: white;
+            }
+
+            img {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+
+        .core-course-link {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .item-inner {
+                @include padding(null, 0, null, null);
+            }
+            .label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            h2 {
+                margins: 6px 0;
+                flex-grow: 1;
+            }
+        }
+        .label {
+            @include margin(0, 0, 0, null);
+        }
+		/* MTA - start */
+		.ebz_startseitenkurse
+		{
+			color: green !important;
+		}
+		/* MTA - end */		
+    }
+		
+
+    button {
+        z-index: 1;
+    }
+}
+
+
+// STANDARDSORTIERUNG ////////////////////////////////////////////////
+	 /* Dropdown Button */
+	#dropbtn {
+	  background-color: #b1adac;
+	//  background-color: #dedcdd;
+	//  color: white;
+	  color: #07325a;
+	  padding: 16px;
+	  font-size: 16px;
+	  font-weight: bold;
+	  border: none;
+	  cursor: pointer;
+	  border: solid #07325a 2px;
+	  border-radius: #07325a;
+	}
+	
+	#srtbtn1 {
+		width: 95%;
+	}
+	
+	#srtbtn2 {
+		width: 95%;
+	}	
+	
+	#srtbtn3 {
+		width: 95%;
+	}	
+	
+	#srtbtn4 {
+		width: 95%;
+	}	
+
+	/* Dropdown button on hover & focus */
+	#dropbtn:hover, #dropbtn:focus {
+	  background-color: #b1adac;
+	//  background-color: #dedcdd;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #ddd}
+
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	.show {display:block;} 
+
+	
+	
+// SORTIERKRITERIUM 3 ////////////////////////////////
+	 /* Dropdown Button */
+	.dropbtn3 {
+	  background-color: #3498DB;
+	  color: white;
+	  padding: 16px;
+	  font-size: 16px;
+	  border: none;
+	  cursor: pointer;
+	}
+
+	/* Dropdown button on hover & focus */
+	.dropbtn3:hover, .dropbtn3:focus {
+	  background-color: #2980B9;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown3 {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content3 {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content3 a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content3 a:hover {background-color: #ddd}
+
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	.show {display:block;} 
+	
+// SORTIERKRITERIUM 4 ////////////////////////////////
+	 /* Dropdown Button */
+	.dropbtn4 {
+	  background-color: #3498DB;
+	  color: white;
+	  padding: 16px;
+	  font-size: 16px;
+	  border: none;
+	  cursor: pointer;
+	}
+
+	/* Dropdown button on hover & focus */
+	.dropbtn4:hover, .dropbtn4:focus {
+	  background-color: #2980B9;
+	}
+
+	/* The container <div> - needed to position the dropdown content */
+	.dropdown4 {
+	  position: relative;
+	  display: inline-block;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content4 {
+	  display: none;
+	  position: absolute;
+	  background-color: #f1f1f1;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content4 a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content4 a:hover {background-color: #ddd}
+
+	/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+	.show {display:block;} 	
+/* MTA - Kurssortierung (end) */
+
+	
+	/* entire container, keeps perspective */
+	.flip-container {
+		perspective: 1000px;
+	}
+		/* flip the pane when hovered */
+		.flip-container:hover .flipper, .flip-container.hover .flipper {
+			transform: rotateY(180deg);
+		}
+
+	.flip-container, .front, .back {
+		width: 100%;
+		height: 80px;
+	}
+
+	/* flip speed goes here */
+	.flipper {
+		transition: 0.6s;
+		transform-style: preserve-3d;
+
+		position: relative;
+	}
+
+	/* hide back of pane during swap */
+	.front, .back {
+		backface-visibility: hidden;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	/* front pane, placed above back */
+	.front {
+		z-index: 2;
+		/* for firefox 31 */
+		transform: rotateY(0deg);
+		background-color: #eef1f3;
+	}
+
+	/* back, initially hidden pane */
+	.back {
+		transform: rotateY(180deg);
+	}
+	
+
+
+// MTA - start (imported) / solution for 1st tile on startpage
+	#ebz_kachel_link_row {
+	//	display: block;
+	//    float: left;
+		display: block;
+	    margin-left: auto;	
+	    margin-right: auto;
+		margin-top: 80px;		
+		max-width: 150px;
+	}
+	
+	div.ebz_kachel_link_left {
+		float: left; 
+		margin-top: 2px;
+	//	height: 100px;
+		height: 130px;
+	//	width:100%;
+		width:180px;
+		//width:auto;
+		font-size: 0.8em;	
+	}
+	
+	div.ebz_kachel_link_left > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right > img
+	{
+		height: 100%;
+		width: 100%;
+	}
+
+	div.ebz_kachel_link_right {
+		float: right; 
+		margin-top: 25px;
+	//	margin-top: 150px;
+	//	display: block;
+	//    margin-left: auto;
+	    margin-right: -28px;
+	//	margin-left: 100px;
+		height: 130px;
+	//	width:auto;
+		//max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+		/*line-break: strict;*/
+	}
+
+	div.ebz_kachel_link_middle > img
+	{
+		height: 100%;
+		width: 100%;
+	}	
+
+	div.ebz_kachel_link_middle {
+		float: left;
+	 //   display: block;
+	//	margin-top: 150px;
+	//    margin-left: auto;
+	//    margin-right: 30px;
+		margin-left: 0px;
+	    margin-top: 15px;
+	//	height: 100px;
+		height: 130px;
+	//	width:auto;	
+	//	max-width: 135px;
+		max-width: 180px;
+		width:180px;
+		font-size: 0.8em;
+	}	
+// MTA - end (imported)	
+
+@media only screen and (max-width: 599px) {
+  .ebzhomeitems {
+    font-size: 0.5em;
+	padding-inline-start: 1px;
+  }
+  
+  .ebzhomeimages {
+	margin-left: 0%;
+  }
+}
+
+@media only screen and (max-width: 1299px) and (min-width: 600px) {
+  .ebzhomeitems {
+    font-size: 0.6em;
+	padding-inline-start: 10px;
+  }
+  
+  .ebzhomeimages {
+	margin-left: 15%;
+  }  
+}
+
+@media only screen and (min-width: 1300px) {
+  .ebzhomeitems {
+    font-size: 0.9em;
+	padding-inline-start: 30px;
+  }
+  
+  .ebzhomeimages {
+	margin-left: 20%;
+  }   
+}
+
+.card, .card-ios {
+	box-shadow: none !important;
+}
+	
+/* MTA - end */	

@@ -1,0 +1,23 @@
+<!-- MTA - start -->
+<ion-header>
+    <ion-navbar core-back-button>
+        <ion-title>Meine Klausuranmeldungen</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+
+	<!--<div ng-bind-html="files"></div>-->
+	<!--<div [src]="files"></div>-->
+	<!--<div>{{files}}</div>-->
+	
+<!--	
+	<h3>Binding innerHTML</h3>
+	<p>Bound value:</p>
+	<p class="e2e-inner-html-interpolated">{{files}}</p>
+	<p>Result of binding to innerHTML:</p>
+-->
+	<p style="color: #07325a; padding: 5px; border: 3px #07325a solid; border-radius: 5px; margin: 40px 3px 3px 3px; " class="e2e-inner-html-bound" [innerHTML]="files"></p>	
+</ion-content>
