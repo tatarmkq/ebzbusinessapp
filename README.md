@@ -60,7 +60,7 @@ Sowohl die Komponenten (genauer: TS-Klassen bzw. - zur Laufzeit - Objekte dieser
 großen Konstruktor schließlich zu einem Gesamtmodul zusammengefasst. Die Parameterliste dieses Konstruktors besteht in erster Linie aus eben diesen
 delegate- bzw. provider-Objekten (aber auch einigen weiteren Zustatzkomponenten, bspw. eventuell benötigten Helper-Klassen oder Manager-Klassen).
 
-## Modul: addon/examenrol:
+## Modul: addon/examenrol (TBD)
 Dieses Modul ist komplett neu hinzuprogrammiert worden. Dessen Hauptfunktion besteht darin, den Studenten eine Prüfungsanmeldung über die 
 EBZ-Businessschool-App zu ermöglichen. Die Prüfungsanmeldung wird von der App registriert und in Echtzeit an den eLearning-Server (Moodle) der
 EBZ Business School weitergeleitet. Der Moodle-Server nimmt daraufhin die automatische Benachrichtigung des Prüfungsamtes über die 
@@ -69,3 +69,43 @@ darin, lediglich einen bestimmten (und hierfür geeigneten) Webservice des Moodl
 Sobad die App die für eine Prüfungsanmeldung relevanten Daten an den Webservice des Moodle-Servers weitergereicht hat, gibt sie damit ab auch 
 die Kontrolle über diese Daten vollständig an den Moodle-Server ab. (Allerdings informiert der Moodle-Server die App zumindest über einen entsprechenden Status-Code
 darüber, ob die serverseitige Registrierung erfolgreich verlief oder nicht.)
+ 
+### addon/examenrol/examenrolments/examenrolements.module.ts
+Die '.module.ts'-Datei des 'examenrol'-Moduls importiert lediglich diverse Komponenten aus anderen Modulen, stellt jedoch selbst kaum Funktionalität
+den anderen Modulen der App bereit. Das liegt daran, dass die Hauptaufgabe des examenrol-Moduls darin besteht, Daten beim Moodle-Server abzufragen
+und in der App anzuzeigen. (Von den anderen Modulen innerhalb der App wird diese Funktionalität nicht benötigt, da die Bewertungen nur an einer
+einzigen Stelle innerhalb der App angezeigt werden.)
+
+### addon/examenrol/providers
+Im Rahmen des Code-Cleanups wären Aufräumarbeiten innerhalb des provider-Unterordners noch auf der ToDo-Liste....Die hier implementierten 
+provider-Instanzen werden größtenteils nicht mehr gebraucht, weil das examenrol-Modul im Grunde genommen ohne diese Provider auskommen müsste.
+Diese Provider sind nämlich fast ausschließlich (überflüssige) Überbleibsel des entfernten filelist-Moduls.
+Dennoch führte ein vollständiges (bzw. fast vollständiges) Auskommentieren des Quellcodes in diesem Ordner zu mehreren Fehlern: entweder direkt beim Kompilieren
+oder erst später zur Laufzeit (je nachdem, was genau man auskommentierte). D.h. obwohl diese Provider eigentlich nicht mehr in Gebrauch sein 
+sollten, scheinen in realen Usecase-Szenarien dennoch weiterhin Kontrollflüße aufzutreten, die den Code dieser Provider-Instanzen durchlaufen 
+bzw. ihn aufrufen.  
+
+## Modul: addon/messages
+
+### addon/messages/providers/mainmenu-handler.ts
+Die Anpassungen innerhalb der mainmenu-handler.ts-Datei enthalten eine ziemlich spezifische Besonderheit, die hier erläutert werden muss. 
+Und zwar hat sich nach längerer Quellcodeanalyse herausgestellt, dass es am effizientesten und mit vergleichsweise wenig Implementieraufwand
+möglich ist, an genau dieser Stelle den wöchentlich aktualisierten Vorlesungsplan in die App mit einzubinden. Die serverseitige Gegebenheit, 
+die man sich an dieser Stelle zunutze macht, besteht darin, dass der Vorlesungsplan auf dem Moodle-Server der EBZ mithilfe eines 
+(moodle-nativen) Online-Forums realisiert wird. D.h. jede neue Aktualisierung dieses Vorlesungsplans (die einmal wöchentlich erfolgt), entspricht
+gewissermaßen 1-zu-1 einem neuen Forum-Beitrag des für dieses Forum zuständigen Moderators. Die Original-Moodle-App ist zwar problemlos in der
+Lage, ein ganzes Forum (mit seiner kompletten Historie) innerhalb einer App-Ansicht darzustellen. Doch wenn innerhalb der App-Ansicht 
+immer nur selektiv der Inhalt eines einzigen Forumbeitrags eingeblendet werden soll (gemäß eines der Projekt-Requirements), dann brachte ein
+kleiner "Kunstgriff" an dieser Stelle das gewünschte Ergebnis. Und zwar konnte man mithilfe von Code-Analyse und Log-Outputs an einer anderen 
+Stelle im Code die Information ableiten, dass die App die einzelnen Beiträge in einem Forum iterativ über eine Schleife abfragt und vom 
+Moodle-Server als eine Folge von JSON-Objekten übergeben bekommt. Falls die App also nur an einem ganz bestimmten Forum-Beitrag "interessiert" ist,
+dann muss sie somit - quasi in umgekehrter Richtung - ein ganz konkretes JSON-Objekt abfragen. Da die Attribute für dieses Forum (also bspw. die
+Kurs-ID des Moodle-Kurses, in den dieses Forum eingebettet ist, die Forum-ID, "Veranstaltungsplan" als fix gesetzter Name des Forums sowie die
+Information, dass man immer nur den aktuellsten Forum-Beitrag haben will) unveränderlich sind, können sie somit "hart gecoded" als JSON-Objekt
+definiert werden, und anschließend an die zuständige Handler-Routine innerhalb von 'mainmenu-handler.ts' weitergereicht werden:
+
+module_obj = JSON.parse('{"id":24964,"url":"https://<aktuelle.URL.des.EBZ-Moodleservers>/mod/forum/view.php?id=24964","name":"Veranstaltungsplan","instance":4122,"visible":1,"modicon":"https://<<aktuelle.URL.des.EBZ-Moodleservers>>/theme/image.php/clean/forum/1549734088/icon","modname":"forum","modplural":"Foren","indent":0,"handlerData":{"icon":"assets/img/mod/forum.svg","title":"Veranstaltungsplan","class":"addon-mod_forum-handler","showDownloadButton":true,"extraBadge":"","extraBadgeColor":""},"isStealth":false}');
+    
+
+   
+       
